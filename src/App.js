@@ -10,11 +10,19 @@ const App = () => {
     "div",
     {},
     React.createElement("h1", { id: "my-brand" }, "Adopt me"),
-    ...[1,2,3].map(() => React.createElement("h1", {}, "Adopt me")),
+    ...[1, 2, 3].map(() => React.createElement("h1", {}, "Adopt me")),
     [
-      React.createElement(Pet, {name: 'Shadow', specie: 'cat', breed: 'siamese'}),
-      React.createElement(Pet, {name: 'Santa', specie: 'dog', breed: 'boxed'})
-    ],
+      React.createElement(Pet, {
+        name: "Shadow",
+        specie: "cat",
+        breed: "siamese",
+      }),
+      React.createElement(Pet, {
+        name: "Santa",
+        specie: "dog",
+        breed: "boxed",
+      }),
+    ]
   );
 };
 ReactDOM.render(React.createElement(App), document.getElementById("root"));
