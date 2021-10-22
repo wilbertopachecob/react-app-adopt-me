@@ -3,15 +3,16 @@
     "eslint:recommended", 
     "plugin:react/recommended",     
     "plugin:jsx-a11y/recommended",     
-    "plugin:errors/import",
     "plugin:react-hooks/recommended",
     "prettier"     
   ],
   "rules": {
     "react/prop-types": 0,
-    "react/rewct-in-js-scope": 0
+    "react/react-in-js-scope": 0,
+    "react/react-in-jsx-scope": "off",
+   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts"] }]
   },
-  "plugins": ["react", "import", "jsx-a11y"],
+  "plugins": ["react", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
