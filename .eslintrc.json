@@ -1,10 +1,11 @@
 {
   "extends": [
     "eslint:recommended", 
-    "prettier",     
     "plugin:react/recommended",     
     "plugin:jsx-a11y/recommended",     
-    "plugin:errors/import"
+    "plugin:errors/import",
+    "plugin:react-hooks/recommended",
+    "prettier"     
   ],
   "rules": {
     "react/prop-types": 0,
