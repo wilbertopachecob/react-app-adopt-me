@@ -26,7 +26,7 @@ const SearchParams = () => {
   async function requestPets(e = null) {
     console.log("CALLED", e);
     if (e) {
-      e.preventDefault();      
+      e.preventDefault();
       e.stopPropagation();
     }
     const res = await fetch(
