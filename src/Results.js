@@ -1,7 +1,9 @@
 import Pet from "./Pet";
+import { STATES } from "./const/states";
 
-const Results = ({ pets }) => (
+const Results = ({ pets, status }) => (
   <div className="search">
+    {status === STATES.LOADING ? <div className="loader"></div> : ""}
     {!pets ? (
       <h1>No pets found</h1>
     ) : (
