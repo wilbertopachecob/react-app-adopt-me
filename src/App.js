@@ -1,7 +1,7 @@
 // import React from "react";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 // import Pet from "./Pet";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
@@ -32,7 +32,11 @@ const App = () => {
     <StrictMode>
       <div>
         <Router>
-          <h1 id="my-brand">Adopt Me</h1>
+          <header>
+            <Link to="/">
+              <h1 id="my-brand">Adopt Me</h1>
+            </Link>
+          </header>
           <Switch>
             <Route path="/details/:id">
               <Details />
