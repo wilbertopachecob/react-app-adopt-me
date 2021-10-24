@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import env from "./const/env";
+import { STATES } from "./const/states";
 
 const localCache = [];
-const STATES = {
-  UNLOADED: "UNLOADED",
-  LOADING: "LOADING",
-  LOADED: "LOADED",
-};
 
 export default function useBreedList(animal) {
   console.log("CALLED useBreedList", animal);
