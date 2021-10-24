@@ -1,8 +1,10 @@
 // import React from "react";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Pet from "./Pet";
 import SearchParams from "./SearchParams";
+import Details from "./Details";
 
 // const App = () => {
 //   return React.createElement(
@@ -29,10 +31,17 @@ const App = () => {
   return (
     <StrictMode>
       <div>
-        <h1 id="my-brand">Adopt Me</h1>
-        <SearchParams />
-        {/* <Pet name="Shadow" specie="cat" breed="siamese" />
-          <Pet name="Santa" specie="dog" breed="boxer" /> */}
+        <Router>
+          <h1 id="my-brand">Adopt Me</h1>
+          <Switch>
+            <Route path="/details/:id">
+              <Details />
+            </Route>
+            <Route path="/">
+              <SearchParams />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     </StrictMode>
   );
