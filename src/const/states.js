@@ -1,0 +1,5 @@
+export const STATES = {
+  UNLOADED: "UNLOADED",
+  LOADING: "LOADING",
+  LOADED: "LOADED",
+};
