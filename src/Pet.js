@@ -8,10 +8,12 @@
 //   ]);
 // };
 import { Link } from "react-router-dom";
+import { DEFAULT_IMAGE } from "./const/default-image";
+
 const Pet = (props) => {
   const { name, animal, breed, images, location, id } = props;
 
-  let src = "http://pets-images.dev-apis.com/pets/none.jpg";
+  let src = DEFAULT_IMAGE;
   if (images.length) {
     src = images[0];
   }
