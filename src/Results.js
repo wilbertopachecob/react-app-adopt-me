@@ -13,7 +13,7 @@ const Results = ({ pets, status }) => {
 
   return (
     <div className="search">
-      {!pets ? (
+      {!pets.length ? (
         <h1>No pets found</h1>
       ) : (
         pets.map((pet) => (
