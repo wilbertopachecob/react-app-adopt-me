@@ -2,7 +2,6 @@ import Pet from "./Pet";
 import { STATES } from "./const/states";
 
 const Results = ({ pets, status }) => {
-  console.log({status});
   if (status === STATES.LOADING) {
     return (
       <div className="search">
