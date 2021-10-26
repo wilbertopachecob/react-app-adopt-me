@@ -24,7 +24,6 @@ const SearchParams = () => {
   }
 
   async function requestPets(e = null) {
-    console.log("CALLED", e);
     if (e) {
       e.preventDefault();
       e.stopPropagation();
