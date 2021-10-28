@@ -3,23 +3,40 @@ import { withRouter } from "react-router-dom";
 import Carousel from "./Carousel";
 import ENV from "./const/env";
 import { STATES } from "./const/states";
+import ErrorBoundary from "./ErrorBoundary";
 
 class Details extends Component {
   state = { loading: STATES.LOADING };
 
+  handleAPIErrors(error) {
+    this.setState(() => {
+      throw new Error(error.message);
+    });
+  }
+
   async componentDidMount() {
     const id = this.props.match.params.id;
-    const res = await fetch(`${ENV.HOST}pets?id=${id}`);
-    const json = await res.json();
-    this.setState({
-      loading: STATES.LOADED,
-      ...json.pets[0],
-    });
+    try {
+      const res = await fetch(`${ENV.HOST}pets?id=${id}`);
+      const json = await res.json();
+      if (!json.pets.length) {
+        const error = new Error("No record were found.");
+        this.handleAPIErrors(error);
+        return;
+      }
+      this.setState({
+        loading: STATES.LOADED,
+        ...json.pets[0],
+      });
+    } catch (error) {
+      this.handleAPIErrors(error);
+    }
   }
 
   render() {
     const { animal, name, breed, city, state, description, loading, images } =
       this.state;
+    // throw new Error("No record were found.");
     if (loading === STATES.LOADING) {
       return <div className="loader"></div>;
     }
@@ -38,4 +55,14 @@ class Details extends Component {
   }
 }
 
-export default withRouter(Details);
+const DetailsWithRouter = withRouter(Details);
+
+const DetailsWithErrorBoundary = (props) => {
+  return (
+    <ErrorBoundary>
+      <DetailsWithRouter {...props} />
+    </ErrorBoundary>
+  );
+};
+
+export default DetailsWithErrorBoundary;
