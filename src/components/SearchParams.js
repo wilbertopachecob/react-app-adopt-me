@@ -16,7 +16,6 @@ const SearchParams = () => {
   const [theme, setTheme] = useContext(ThemeContext);
 
   const [breeds, status] = useBreedList(animal);
-  // const breeds = [""];
 
   useEffect(() => {
     requestPets();

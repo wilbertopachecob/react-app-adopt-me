@@ -1,32 +1,9 @@
-// import React from "react";
 import { StrictMode, useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-// import Pet from "./Pet";
 import SearchParams from "./components/SearchParams";
 import Details from "./components/Details";
 import ThemeContext from "./contexts/ThemeContext";
-
-// const App = () => {
-//   return React.createElement(
-//     "div",
-//     {},
-//     React.createElement("h1", { id: "my-brand" }, "Adopt me"),
-//     ...[1, 2, 3].map(() => React.createElement("h1", {}, "Adopt me")),
-//     [
-//       React.createElement(Pet, {
-//         name: "Shadow",
-//         specie: "cat",
-//         breed: "siamese",
-//       }),
-//       React.createElement(Pet, {
-//         name: "Santa",
-//         specie: "dog",
-//         breed: "boxed",
-//       }),
-//     ]
-//   );
-// };
 
 const App = () => {
   const theme = useState("darkblue");
