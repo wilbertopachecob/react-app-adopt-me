@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import useBreedList from "../hooks/useBreedList";
 import Results from "./Results";
+import Select from "./Select";
 import env from "../const/env";
 import ThemeContext from "../contexts/ThemeContext";
 
 const ANIMALS = ["dog", "cat", "bird", "reptile", "rabbit"];
+const COLORS = ["darkblue", "hotpink", "thistle", "coral"];
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
@@ -20,11 +22,6 @@ const SearchParams = () => {
     requestPets();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  function updateAnimal(e) {
-    console.log(e.target.value);
-    setAnimal(e.target.value);
-  }
-
   async function requestPets(e = null) {
     if (e) {
       e.preventDefault();
@@ -34,7 +31,6 @@ const SearchParams = () => {
       `${env.HOST}pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const json = await res.json();
-    console.log(json.pets);
     setPets(json.pets);
     return false;
   }
@@ -49,52 +45,27 @@ const SearchParams = () => {
             onChange={(e) => setLocation(e.target.value)}
           />
         </label>
-        <label htmlFor="animals">
-          Animals
-          <select
-            value={animal}
-            id="animals"
-            onChange={updateAnimal}
-            onBlur={updateAnimal}
-          >
-            <option />
-            {ANIMALS.map((animal) => (
-              <option value={animal} key={animal}>
-                {animal}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="breeds">
-          Breeds
-          <select
-            value={breed}
-            id="breeds"
-            onChange={(e) => setBreed(e.target.value)}
-            onBlur={(e) => setBreed(e.target.value)}
-          >
-            <option />
-            {breeds.map((breed) => (
-              <option value={breed} key={breed}>
-                {breed}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="btnTheme">
-          Buttons Theme
-          <select
-            value={theme}
-            id="btnTheme"
-            onChange={(e) => setTheme(e.target.value)}
-            onBlur={(e) => setTheme(e.target.value)}
-          >
-            <option value="darkblue">Dark blue</option>
-            <option value="hotpink">Hot Pink</option>
-            <option value="thistle">Thistle</option>
-            <option value="coral">Coral</option>
-          </select>
-        </label>
+        <Select
+          setCB={setAnimal}
+          id={`animals`}
+          value={animal}
+          label={`Animals`}
+          items={["", ...ANIMALS]}
+        ></Select>
+        <Select
+          setCB={setBreed}
+          id={`breeds`}
+          value={breed}
+          label={`Breeds`}
+          items={["", ...breeds]}
+        ></Select>
+        <Select
+          setCB={setTheme}
+          id={`btnTheme`}
+          value={theme}
+          label={`Buttons Theme`}
+          items={COLORS}
+        ></Select>
         <button
           style={{ backgroundColor: theme }}
           onClick={(e) => requestPets(e)}
