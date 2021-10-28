@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { DEFAULT_IMAGE } from "./const/default-image";
+import { DEFAULT_IMAGE } from "../const/default-image";
 
 class Carousel extends Component {
   state = {

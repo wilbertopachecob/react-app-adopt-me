@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Carousel from "./Carousel";
-import ENV from "./const/env";
-import { STATES } from "./const/states";
+import ENV from "../const/env";
+import { STATES } from "../const/states";
 import ErrorBoundary from "./ErrorBoundary";
-import ThemeContext from "./ThemeContext";
+import ThemeContext from "../contexts/ThemeContext";
 import Modal from "./Modal";
 
 class Details extends Component {

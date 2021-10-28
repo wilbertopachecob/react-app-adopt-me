@@ -1,5 +1,5 @@
 import Pet from "./Pet";
-import { STATES } from "./const/states";
+import { STATES } from "../const/states";
 
 const Results = ({ pets, status }) => {
   if (status === STATES.LOADING) {

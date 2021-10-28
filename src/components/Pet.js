@@ -8,7 +8,7 @@
 //   ]);
 // };
 import { Link } from "react-router-dom";
-import { DEFAULT_IMAGE } from "./const/default-image";
+import { DEFAULT_IMAGE } from "../const/default-image";
 
 const Pet = (props) => {
   const { name, animal, breed, images, location, id } = props;

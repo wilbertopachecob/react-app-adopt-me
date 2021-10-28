@@ -3,9 +3,9 @@ import { StrictMode, useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 // import Pet from "./Pet";
-import SearchParams from "./SearchParams";
-import Details from "./Details";
-import ThemeContext from "./ThemeContext";
+import SearchParams from "./components/SearchParams";
+import Details from "./components/Details";
+import ThemeContext from "./contexts/ThemeContext";
 
 // const App = () => {
 //   return React.createElement(

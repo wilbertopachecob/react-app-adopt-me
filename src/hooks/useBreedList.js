@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import env from "./const/env";
-import { STATES } from "./const/states";
+import env from "../const/env";
+import { STATES } from "../const/states";
 
 const localCache = [];
 
